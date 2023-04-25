@@ -1,11 +1,13 @@
+/* STRICTURE THE PAGE LAYOUT*/
+
 .container {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas:
       "hd hd hd hd"
       "int int int int"
-      "main main sd sd"
+      "main main main sd"
       "ft ft ft ft";
     min-height: 100vh;
   }
@@ -13,7 +15,7 @@
   .header{
     grid-area: hd;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
@@ -21,9 +23,35 @@
     width: 100%;
     height: 60px;
     padding: 5px;
-    background-color: #f8f8f8;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px rgba(252, 251, 251, 0);
     z-index: 999;
+  }
+
+  .contact-btn{
+    margin-right: 15px;
+    padding: 0.5rem 1rem;
+    background-color: rgb(255,69,0);
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: lighter;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+  }
+
+  .contact-btn:hover{
+    scale: 1.05;
+    color: rgb(255,69,0);
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+  
+  .contact-btn:active{
+    scale: 0.95;
   }
 
   .logo{
@@ -39,9 +67,11 @@
 
   .navbar li {
     margin: 0 10px;
+    display: inline-block;
   }
 
   .navbar a {
+    padding: 10px;
     display: block;
     color: black;
     text-decoration: none;
@@ -51,9 +81,10 @@
   }
 
   .navbar a:hover{
-    text-decoration: underline;
     color: rgb(255,69,0);
-    background-color: rgba(128, 128, 128, 0.2);
+    border-bottom: 2px solid rgb(255, 69, 0, 1);
+    border-bottom-width: 4px;
+    
   }
 
   .introduction{
@@ -68,30 +99,49 @@
   }
 
   .content{
+    padding: 70px 0px 0px 50px;
+    margin: 10px 5px 10px 10px;
     grid-area: main;
     border: 1px solid red;
   }
 
   .side{
     grid-area: sd;
+    padding: 70px 10px 5px 10px;
+    margin: 10px;
     border: 1px solid red;
   }
 
   .footer{
     grid-area: ft;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
     border: 1px solid red;
   }
 
-.box imag{
+.box img{
   max-width: 100%;
   max-height: 100%
 }
 
 .background {
+    background-size: cover;
+    background-position: center;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+/*RESPONSIVE DESIGN*/
+@media(max-width: 763px){
+    .navbar, 
+    .contact-btn{
+        display: none;
+    }
+
 }
